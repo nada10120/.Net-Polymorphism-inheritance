@@ -33,7 +33,10 @@ namespace Task4
             }
             return false;
         }
-
+        public override string ToString()
+        {
+            return $" {Name} and Balance is {Balance}";
+        }
         public static double operator + (Account lhs, Account rhs)
         {
             return lhs.Balance + rhs.Balance;
@@ -201,7 +204,7 @@ namespace Task4
             Console.WriteLine("\n=== Accounts ==========================================");
             foreach (var acc in accounts)
             {
-                Console.WriteLine(acc +" "+ acc.Name + "__" + acc.Balance);
+                Console.WriteLine(acc);
             }
         }
 
@@ -211,9 +214,9 @@ namespace Task4
             foreach (var acc in accounts)
             {
                 if (acc.Deposit(amount))
-                    Console.WriteLine($"Deposited {amount} to {acc.Name}");
+                    Console.WriteLine($"Deposited {amount} to {acc}");
                 else
-                    Console.WriteLine($"Failed Deposit of {amount} to {acc.Name}");
+                    Console.WriteLine($"Failed Deposit of {amount} to {acc}");
             }
         }
 
@@ -223,9 +226,9 @@ namespace Task4
             foreach (var acc in accounts)
             {
                 if (acc.Withdraw(amount))
-                    Console.WriteLine($"Withdrew {amount} from {acc.Name} account");
+                    Console.WriteLine($"Withdrew {amount} from {acc}");
                 else
-                    Console.WriteLine($"Failed Withdrawal of {amount} from {acc.Name} account");
+                    Console.WriteLine($"Failed Withdrawal of {amount} from {acc}");
             }
         }
     }
